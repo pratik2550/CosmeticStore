@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cosmeticstore.databinding.QuickCategoriesBinding
 
-class QuickCategoryAdapter(private val itemList: List<String>): RecyclerView.Adapter<QuickCategoryAdapter.QuickCategoryHolder>() {
+class QuickCategoryAdapter(private val itemList: List<Int>): RecyclerView.Adapter<QuickCategoryAdapter.QuickCategoryHolder>() {
 
     class QuickCategoryHolder(val quickCategoriesBinding: QuickCategoriesBinding):
             RecyclerView.ViewHolder(quickCategoriesBinding.root) {
@@ -22,7 +22,7 @@ class QuickCategoryAdapter(private val itemList: List<String>): RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: QuickCategoryHolder, position: Int) {
-        holder.quickCategoriesBinding.quickCategoryTV.text = itemList[position]
+        holder.quickCategoriesBinding.categoryIV.setImageResource(itemList[position])
     }
 
     override fun getItemCount(): Int {

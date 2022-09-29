@@ -16,8 +16,9 @@ class MainActivity : AppCompatActivity() {
 
     private var brandName = "maybelline"
     private lateinit var imageList: List<Int>
+    private lateinit var viewPagerList: List<Int>
     private lateinit var categoryList: List<String>
-    private lateinit var brandList: List<String>
+    private lateinit var brandList: List<Int>
     private lateinit var newArrivalList: List<String>
 
     private var _binding : ActivityMainBinding? = null
@@ -31,8 +32,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         imageList = ArrayList()
-        imageList = imageList + R.drawable.avengers
-        imageList = imageList + R.drawable.sky
+        imageList = imageList + R.drawable.blush_icon
+        imageList = imageList + R.drawable.eyeliner_icon
+        imageList = imageList + R.drawable.foundation_icon
+        imageList = imageList + R.drawable.lip_liner_icon
+        imageList = imageList + R.drawable.mascara_icon
+        imageList = imageList + R.drawable.nail_polish_icon
+
+        viewPagerList = ArrayList()
+        viewPagerList = viewPagerList + R.drawable.nykaa_1
+        viewPagerList = viewPagerList + R.drawable.nykaa_2
+        viewPagerList = viewPagerList + R.drawable.nykaa_3
+        viewPagerList = viewPagerList + R.drawable.nykaa_6
+        viewPagerList = viewPagerList + R.drawable.nykaa_7
 
         categoryList = ArrayList()
         categoryList = categoryList + "Makeup"
@@ -42,15 +54,12 @@ class MainActivity : AppCompatActivity() {
         categoryList = categoryList + "Nail"
 
         brandList = ArrayList()
-        brandList = brandList + "almay"
-        brandList = brandList + "alva"
-        brandList = brandList + "anna sui"
-        brandList = brandList + "annabelle"
-        brandList = brandList + "benefit"
-        brandList = brandList + "boosh"
-        brandList = brandList + "burt's bees"
-        brandList = brandList + "butter london"
-        brandList = brandList + "c'est moi"
+        brandList = brandList + R.drawable.loreal
+        brandList = brandList + R.drawable.maybelline
+        brandList = brandList + R.drawable.nyx
+        brandList = brandList + R.drawable.dior
+        brandList = brandList + R.drawable.clinque
+        brandList = brandList + R.drawable.colourpop
 
         newArrivalList = ArrayList()
         newArrivalList = newArrivalList + "Makeup"
@@ -60,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         newArrivalList = newArrivalList + "Nail"
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        val quickCategoryAdapter = QuickCategoryAdapter(categoryList)
+        val quickCategoryAdapter = QuickCategoryAdapter(imageList)
 
         val fixLinearLayoutManager = object : LinearLayoutManager(this) {
             override fun canScrollVertically(): Boolean {
@@ -78,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         binding.newArrivalRV.layoutManager = fixLinearLayoutManager
         val newArrivalAdapter = NewArrivalAdapter(newArrivalList)
 
-        binding.viewPager2.adapter = ViewPagerAdapter(imageList)
+        binding.viewPager2.adapter = ViewPagerAdapter(viewPagerList)
         binding.recyclerView.adapter = quickCategoryAdapter
         binding.topBrandRV.adapter = topBrandsAdapter
         binding.newArrivalRV.adapter = newArrivalAdapter

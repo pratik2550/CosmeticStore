@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cosmeticstore.databinding.TopBrandsBinding
 
-class TopBrandsAdapter(val topBrandList: List<String>): RecyclerView.Adapter<TopBrandsAdapter.TopBrandsHolder>() {
+class TopBrandsAdapter(val topBrandList: List<Int>): RecyclerView.Adapter<TopBrandsAdapter.TopBrandsHolder>() {
 
     class TopBrandsHolder(val topBrandsBinding: TopBrandsBinding):
             RecyclerView.ViewHolder(topBrandsBinding.root) {
@@ -22,7 +22,7 @@ class TopBrandsAdapter(val topBrandList: List<String>): RecyclerView.Adapter<Top
     }
 
     override fun onBindViewHolder(holder: TopBrandsHolder, position: Int) {
-        holder.topBrandsBinding.brandNameTV.text = topBrandList[position]
+        holder.topBrandsBinding.brandNameIV.setImageResource(topBrandList[position])
     }
 
     override fun getItemCount(): Int {
